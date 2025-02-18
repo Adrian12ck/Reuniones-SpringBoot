@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Listado</h1>
+    <ul>
+        <li th:each="reunion:${reuniones}">
+            <span th:text="${reunion.asunto}">Asunto</span>
+            <span th:text="${#temporals.format(reunion.fecha, 'dd-MMM-yyyy')}">Fecha</span>
+                <ol th:each="persona:${reunion.asistentes}">
+                    <span th:text="${persona.nombre}">Nombre</span>
+                </ol>
+        </li>
+    </ul>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
