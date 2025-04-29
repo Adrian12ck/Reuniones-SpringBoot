@@ -1,6 +1,8 @@
 package com.adrian.reuniones.async;
 
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -37,14 +39,14 @@ public class BuscaListener {
         try {
 
         InfoBusca info = mapper.readValue(mensaje, InfoBusca.class);
-        Persona persona = personaService.getById(info.getIdAsistente());
-        Reunion reunion = reunionService.getById(info.getIdReunion());
+        Optional<Persona> persona = personaService.getById(info.getIdAsistente());
+        Optional<Reunion>  reunion = reunionService.getById(info.getIdReunion());
         System.out.println("Mensaje enviado!");
 
         LOG.info("{} {} tiene una reunion a las {}",
-        persona.getNombre(),
-        persona.getApellido(),
-        reunion.getFecha());
+        persona.get().getNombre(),
+        persona.get().getApellido(),
+        reunion.get().getFecha());
 
         } catch (JsonProcessingException e) {
             LOG.warn("Mensaje incorrecto", e);

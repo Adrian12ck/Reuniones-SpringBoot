@@ -9,6 +9,8 @@ logging:
             init:
               ScriptUtils: "debug"
 spring:
+  main:
+    allow-circular-references: true
   h2:
     console:
       enabled: true

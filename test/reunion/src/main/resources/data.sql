@@ -18,3 +18,7 @@ INSERT INTO asistente (reunion_id, persona_id) VALUES (3, 2);
 INSERT INTO asistente (reunion_id, persona_id) VALUES (3, 3);
 INSERT INTO asistente (reunion_id, persona_id) VALUES (3, 4);
 INSERT INTO asistente (reunion_id, persona_id) VALUES (3, 5);
+
+
+INSERT INTO users (id, username, password, email, role, enabled) VALUES (2001, 'admin', '$2a$12$9SL83YEhhQ.7sgkSceL4LeXKRNIB/IFpw0FpAngEqxZmw/njI808W', 'hola@gmail.com', 'ROLE_ADMIN', 1); 
+INSERT INTO users (id, username, password, email, role, enabled) VALUES (2002, 'adrian', '$2a$12$K2oxbcXG5xyijqiV5Ks/8e.Q1KbpdDdPK7WXxX0N2403y2J/NtwA6', 'adios@gmail.com', 'ROLE_USER', 1); 
